@@ -3,8 +3,6 @@ ADD_LIBRARY(dcmimgle dcmimage dibaslut diciefn dicielut didislut didispfn didocu
 
 target_link_libraries(dcmimgle
 dcmdata
-oflog
-ofstd
 )
 
 # declare installation files

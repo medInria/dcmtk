@@ -3,8 +3,6 @@ ADD_LIBRARY(i2d i2d i2dplvlp i2djpgs i2dbmps i2dplsc i2dplnsc)
 
 target_link_libraries(i2d
 dcmdata
-oflog
-ofstd
 )
 
 # declare installation files

@@ -2,10 +2,8 @@
 ADD_LIBRARY(dcmqrdb dcmqrcbf dcmqrcbg dcmqrcbm dcmqrcbs dcmqrcnf dcmqrdbi dcmqrdbs dcmqropt dcmqrptb dcmqrsrv dcmqrtis)
 
 target_link_libraries(dcmqrdb
-dcmdata
 dcmnet
-oflog
-ofstd
+dcmdata
 )
 
 # declare installation files

@@ -3,8 +3,6 @@ ADD_LIBRARY(dcmnet assoc cond dcasccff dcasccfg dccfenmp dccfpcmp dccfprmp dccfr
 
 target_link_libraries(dcmnet
 dcmdata
-oflog
-ofstd
 )
 
 # declare installation files

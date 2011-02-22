@@ -5,12 +5,8 @@ INCLUDE_DIRECTORIES(${dcmjpls_SOURCE_DIR}/include ${ofstd_SOURCE_DIR}/include ${
 ADD_LIBRARY(dcmjpls djcparam djdecode djencode djrparam djcodecd djutils djcodece)
 
 target_link_libraries(dcmjpls
-dcmdata
 dcmimgle
-dcmimage
 charls
-oflog
-ofstd
 )
 
 # declare installation files

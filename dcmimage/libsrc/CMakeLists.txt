@@ -5,8 +5,6 @@ target_link_libraries(dcmimage
 ${LIBPNG_LIBS}
 ${LIBTIFF_LIBS}
 dcmimgle
-oflog
-ofstd
 )
 
 # declare installation files

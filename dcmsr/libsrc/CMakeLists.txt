@@ -3,8 +3,6 @@ ADD_LIBRARY(dcmsr dsrcitem dsrcodtn dsrcodvl dsrcomtn dsrcomvl dsrcontn dsrcsidl
 
 target_link_libraries(dcmsr
 dcmdata
-oflog
-ofstd
 )
 
 # declare installation files

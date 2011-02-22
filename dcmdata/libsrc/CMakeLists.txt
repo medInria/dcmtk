@@ -3,7 +3,6 @@ ADD_LIBRARY(dcmdata cmdlnarg dcbytstr dcchrstr dccodec dcdatset dcddirif dcdicdi
 
 target_link_libraries(dcmdata
 oflog
-ofstd
 )
 
 if (UNIX OR APPLE)
