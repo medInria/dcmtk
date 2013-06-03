@@ -5,4 +5,8 @@ PROJECT(dcmqrdb)
 INCLUDE_DIRECTORIES(${dcmqrdb_SOURCE_DIR}/include ${ofstd_SOURCE_DIR}/include ${oflog_SOURCE_DIR}/include ${oflog_SOURCE_DIR}/include ${dcmdata_SOURCE_DIR}/include ${dcmnet_SOURCE_DIR}/include ${ZLIB_INCDIR})
 
 # recurse into subdirectories
-SUBDIRS(libsrc apps include/dcmtk/dcmqrdb docs etc)
+SUBDIRS(libsrc include/dcmtk/dcmqrdb docs etc)
+
+IF(${DCMTK_BUILD_TOOLS})
+    SUBDIRS (apps)
+ENDIF()
