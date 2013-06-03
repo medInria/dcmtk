@@ -16,6 +16,10 @@ SET(DCMTK_MODULES config ofstd oflog dcmdata dcmimgle dcmjpeg dcmimage dcmtls dc
 # Add non-public modules
 #SET(DCMTK_MODULES ${DCMTK_MODULES} dcmdbsup dcmwlmxl dcmpps dcmppswm dcmjp2k dcmloco dcmqrdbx dcmcheck dcmprint dcmprscp dcmavi dcmmisc dcmppscu dcmstcom dcmrt dcmwave dcmeval)
 
+# Option to build and install or not tools (We may want to have only libraries)
+SET(DCMTK_BUILD_TOOLS OFF CACHE BOOL "DCMTK build and install tools" FORCE)
+MARK_AS_ADVANCED(${DCMTK_BUILD_TOOLS})
+
 # Package "release" settings (some are currently unused)
 SET(DCMTK_PACKAGE_NAME "dcmtk")
 SET(DCMTK_PACKAGE_DATE "CVS")
