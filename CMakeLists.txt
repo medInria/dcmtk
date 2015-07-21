@@ -7,6 +7,9 @@ IF(CMAKE_BACKWARDS_COMPATIBILITY GREATER 2.8.3)
   SET(CMAKE_BACKWARDS_COMPATIBILITY 2.8.3 CACHE STRING "Latest version of CMake when this project was released." FORCE)
 ENDIF(CMAKE_BACKWARDS_COMPATIBILITY GREATER 2.8.3)
 
+# On Macs, disable MACOSX_RPATH (cmake 3.x)
+set(CMAKE_MACOSX_RPATH OFF)
+
 #-----------------------------------------------------------------------------
 # General project settings to configure DCMTK build process
 #-----------------------------------------------------------------------------

@@ -394,7 +394,7 @@ ENDIF(WIN32 AND NOT CYGWIN)
 # Tests that require a try-compile
 
 # Check for HAVE_CXX_BOOL
-IF("HAVE_CXX_BOOL" MATCHES "^HAVE_CXX_BOOL$")
+IF(HAVE_CXX_BOOL MATCHES "^HAVE_CXX_BOOL$")
   MESSAGE(STATUS "Checking support for C++ type bool")
   TRY_COMPILE(HAVE_CXX_BOOL
               ${CMAKE_BINARY_DIR}/CMakeTmp/Bool
@@ -415,9 +415,9 @@ IF("HAVE_CXX_BOOL" MATCHES "^HAVE_CXX_BOOL$")
       "failed with the following output:\n"
       "${OUTPUT}\n")
   ENDIF(HAVE_CXX_BOOL)
-ENDIF("HAVE_CXX_BOOL" MATCHES "^HAVE_CXX_BOOL$")
+ENDIF()
 
-IF("C_CHAR_UNSIGNED" MATCHES "^C_CHAR_UNSIGNED$")
+IF(C_CHAR_UNSIGNED MATCHES "^C_CHAR_UNSIGNED$")
   MESSAGE(STATUS "Checking signedness of char")
   TRY_RUN(C_CHAR_SIGNED C_CHAR_SIGNED_COMPILED ${CMAKE_BINARY_DIR}/CMakeTmp/Char
           ${DCMTK_SOURCE_DIR}/CMake/dcmtkTestCharSignedness.cc)
@@ -432,10 +432,10 @@ IF("C_CHAR_UNSIGNED" MATCHES "^C_CHAR_UNSIGNED$")
   ELSE(C_CHAR_SIGNED_COMPILED)
     MESSAGE(STATUS "Checking signedness of char -- failed")
   ENDIF(C_CHAR_SIGNED_COMPILED)
-ENDIF("C_CHAR_UNSIGNED" MATCHES "^C_CHAR_UNSIGNED$")
+ENDIF()
 
 # Check for thread type
-IF("HAVE_POINTER_TYPE_PTHREAD_T" MATCHES "^HAVE_POINTER_TYPE_PTHREAD_T$")
+IF(HAVE_POINTER_TYPE_PTHREAD_T MATCHES "^HAVE_POINTER_TYPE_PTHREAD_T$")
   MESSAGE(STATUS "Checking whether pthread_t is a pointer type")
   IF (HAVE_WINDOWS_H)
     SET(HAVE_INT_TYPE_PTHREAD_T 1)
@@ -460,10 +460,10 @@ IF("HAVE_POINTER_TYPE_PTHREAD_T" MATCHES "^HAVE_POINTER_TYPE_PTHREAD_T$")
       "failed with the following output:\n"
       "${OUTPUT}\n")
   ENDIF(NOT HAVE_INT_TYPE_PTHREAD_T)
-ENDIF("HAVE_POINTER_TYPE_PTHREAD_T" MATCHES "^HAVE_POINTER_TYPE_PTHREAD_T$")
+ENDIF()
 
 # Check if typename works properly. Only MSC6 really fails here.
-IF("HAVE_TYPENAME" MATCHES "^HAVE_TYPENAME$")
+IF(HAVE_TYPENAME MATCHES "^HAVE_TYPENAME$")
   MESSAGE(STATUS "Checking whether typename works correctly")
   TRY_COMPILE(HAVE_TYPENAME
     ${CMAKE_BINARY_DIR}/CMakeTmp/Typename
@@ -484,10 +484,10 @@ IF("HAVE_TYPENAME" MATCHES "^HAVE_TYPENAME$")
       "failed with the following output:\n"
       "${OUTPUT}\n")
   ENDIF(HAVE_TYPENAME)
-ENDIF("HAVE_TYPENAME" MATCHES "^HAVE_TYPENAME$")
+ENDIF()
 
 # Check if ENAMETOOLONG is defined.
-IF("HAVE_ENAMETOOLONG" MATCHES "^HAVE_ENAMETOOLONG$")
+IF(HAVE_ENAMETOOLONG MATCHES "^HAVE_ENAMETOOLONG$")
   MESSAGE(STATUS "Checking whether ENAMETOOLONG is defined")
   TRY_COMPILE(HAVE_ENAMETOOLONG
     ${CMAKE_BINARY_DIR}/CMakeTmp/NameTooLong
@@ -508,10 +508,10 @@ IF("HAVE_ENAMETOOLONG" MATCHES "^HAVE_ENAMETOOLONG$")
       "failed with the following output:\n"
       "${OUTPUT}\n")
   ENDIF(HAVE_ENAMETOOLONG)
-ENDIF("HAVE_ENAMETOOLONG" MATCHES "^HAVE_ENAMETOOLONG$")
+ENDIF()
 
 # Check if strerror_r returns a char* is defined.
-IF("HAVE_CHARP_STRERROR_R" MATCHES "^HAVE_CHARP_STRERROR_R$")
+IF(HAVE_CHARP_STRERROR_R MATCHES "^HAVE_CHARP_STRERROR_R$")
   MESSAGE(STATUS "Checking whether strerror_r returns an int")
   TRY_COMPILE(HAVE_CHARP_STRERROR_R
     ${CMAKE_BINARY_DIR}/CMakeTmp/CharPStrerror
@@ -532,10 +532,10 @@ IF("HAVE_CHARP_STRERROR_R" MATCHES "^HAVE_CHARP_STRERROR_R$")
       "failed with the following output:\n"
       "${OUTPUT}\n")
   ENDIF(HAVE_CHARP_STRERROR_R)
-ENDIF("HAVE_CHARP_STRERROR_R" MATCHES "^HAVE_CHARP_STRERROR_R$")
+ENDIF()
 
 # Check if variable length arrays are supported.
-IF("HAVE_VLA" MATCHES "^HAVE_VLA$")
+IF(HAVE_VLA MATCHES "^HAVE_VLA$")
   MESSAGE(STATUS "Checking whether variable length arrays are supported")
   TRY_COMPILE(HAVE_VLA
     ${CMAKE_BINARY_DIR}/CMakeTmp/VariableLengthArray
@@ -556,10 +556,10 @@ IF("HAVE_VLA" MATCHES "^HAVE_VLA$")
       "failed with the following output:\n"
       "${OUTPUT}\n")
   ENDIF(HAVE_VLA)
-ENDIF("HAVE_VLA" MATCHES "^HAVE_VLA$")
+ENDIF()
 
 # Check if std::ios::nocreate exists
-IF("HAVE_IOS_NOCREATE" MATCHES "^HAVE_IOS_NOCREATE$")
+IF(HAVE_IOS_NOCREATE MATCHES "^HAVE_IOS_NOCREATE$")
   MESSAGE(STATUS "Checking whether std::ios::nocreate exists")
   TRY_COMPILE(HAVE_IOS_NOCREATE
     ${CMAKE_BINARY_DIR}/CMakeTmp/IosNocreate
@@ -580,7 +580,7 @@ IF("HAVE_IOS_NOCREATE" MATCHES "^HAVE_IOS_NOCREATE$")
       "failed with the following output:\n"
       "${OUTPUT}\n")
   ENDIF(HAVE_IOS_NOCREATE)
-ENDIF("HAVE_IOS_NOCREATE" MATCHES "^HAVE_IOS_NOCREATE$")
+ENDIF()
 
 IF(WIN32)
   # If someone can tell me how to convince TRY_COMPILE to link against winsock,
@@ -590,7 +590,7 @@ IF(WIN32)
   SET(HAVE_INTP_SELECT 0 CACHE INTERNAL "Set if select() accepts an int* argument")
 ELSE(WIN32)
   # Check if socket functions accept an int*
-  IF("HAVE_INTP_SOCKET" MATCHES "^HAVE_INTP_SOCKET$")
+  IF(HAVE_INTP_SOCKET MATCHES "^HAVE_INTP_SOCKET$")
     MESSAGE(STATUS "Checking whether socket functions accept an int* argument")
     TRY_COMPILE(HAVE_INTP_SOCKET
       ${CMAKE_BINARY_DIR}/CMakeTmp/testSocketIntP
@@ -613,10 +613,10 @@ ELSE(WIN32)
         "failed with the following output:\n"
         "${OUTPUT}\n")
     ENDIF(HAVE_INTP_SOCKET)
-  ENDIF("HAVE_INTP_SOCKET" MATCHES "^HAVE_INTP_SOCKET$")
+  ENDIF()
 
   # Check if select() accepts an int*
-  IF("HAVE_INTP_SELECT" MATCHES "^HAVE_INTP_SELECT$")
+  IF(HAVE_INTP_SELECT MATCHES "^HAVE_INTP_SELECT$")
     MESSAGE(STATUS "Checking whether select() accepts an int* argument")
     TRY_COMPILE(HAVE_INTP_SELECT
       ${CMAKE_BINARY_DIR}/CMakeTmp/testSelectIntP
@@ -637,5 +637,5 @@ ELSE(WIN32)
         "failed with the following output:\n"
         "${OUTPUT}\n")
     ENDIF(HAVE_INTP_SELECT)
-  ENDIF("HAVE_INTP_SELECT" MATCHES "^HAVE_INTP_SELECT$")
+  ENDIF()
 ENDIF(WIN32)
